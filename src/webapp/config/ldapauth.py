@@ -54,10 +54,12 @@ class myLdapAuth(object):
         return myuser
 
     def _setUserCategory(self,username,info):
-        return info[1]["homeDirectory"][0].decode('utf-8').split("/home/users/")[1].split("/"+username)[0].split('/')[0]
+        return 'local'
+#        return info[1]["homeDirectory"][0].decode('utf-8').split("/home/users/")[1].split("/"+username)[0].split('/')[0]
 
     def _setUserGroup(self,username,info):
-        return info[1]["homeDirectory"][0].decode('utf-8').split("/home/users/")[1].split("/"+username)[0].split('/')[1]
+        return 'advanced'
+#        return info[1]["homeDirectory"][0].decode('utf-8').split("/home/users/")[1].split("/"+username)[0].split('/')[1]
                 
     def _setUserRole(self,username):
         if any(char.isdigit() for char in username):
